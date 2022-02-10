@@ -1,0 +1,134 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk compile_sdk
+
+    defaultConfig {
+        applicationId "com.primelab.nearBase"
+
+        minSdk min_sdk
+        targetSdk target_sdk
+        versionCode version_code
+        versionName version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility java_source_version
+        targetCompatibility java_target_version
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Kotlin
+    implementation rootProject.deps.coroutine
+    implementation rootProject.deps.coroutine_core
+
+    // AndroidX
+    implementation rootProject.deps.core_ktx
+    implementation rootProject.deps.material
+    implementation rootProject.deps.appcompat
+
+    // Navigation Components
+    implementation rootProject.deps.navFragment
+    implementation rootProject.deps.navUi
+
+    // Retrofit
+    implementation rootProject.deps.gson
+    implementation rootProject.deps.okHttpLogging
+    implementation rootProject.deps.retrofitGson
+    implementation rootProject.deps.retrofit
+
+    // Lifecycle
+    implementation rootProject.deps.lifecycle_runtime
+    implementation rootProject.deps.lifecycle_extension
+    implementation rootProject.deps.lifecycle_viewmodel
+
+    // Logging
+    implementation rootProject.deps.timber_log
+
+    // Hilt
+    implementation rootProject.deps.hilt
+    kapt rootProject.deps.hilt_compiler
+
+    // Glide
+    implementation rootProject.deps.glide
+    kapt rootProject.deps.kaptGlide
+
+    // Stetho
+    implementation rootProject.deps.stetho
+    implementation rootProject.deps.stethoOkttp
+
+    // Pretty Time
+    implementation rootProject.deps.prettyTime
+    implementation rootProject.deps.threeTenTime
+
+    // For Apps Flyer
+    implementation rootProject.deps.appsflyer
+
+    // For File Picker
+    implementation rootProject.deps.filePicker
+
+    //Circular Image View
+    implementation rootProject.deps.circularImageView
+
+    // Country Code Picker
+    implementation rootProject.deps.countryCodePicker
+
+    //Phone number utils
+    implementation rootProject.deps.libPhone
+
+    //Google Analytics
+    implementation 'com.google.android.gms:play-services-analytics:18.0.1'
+
+    //hilt work compiler
+    kapt rootProject.deps.hilt_work_compiler
+    //hilt work manager
+    implementation rootProject.deps.hilt_work
+    //work manager
+    implementation rootProject.deps.work_manager
+
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.11"
+
+    //Screen size
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+}
+
+kapt {
+    correctErrorTypes true
+}
